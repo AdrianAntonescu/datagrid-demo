@@ -21,6 +21,8 @@ Grid:
 - the second table is a table with pagination, which has a default page size of 5 entries and has 2 sortable columns: "Name" and "Population"; whenever you sort a column or change the page you are looking at, data is updated and sent to the table
 - the third table is a table with pagination, but without a starting page size which falls back to displaying the whole data set; this table is also not sortable, even though in the html, its columns have the "sortable" property set to true (this happens because the inner "sortable" property of the grid defaults to false)
 
+I also added unit tests for the components in their .spec.ts files.
+
 ## Development server
 
 Go to root path and install dependencies
