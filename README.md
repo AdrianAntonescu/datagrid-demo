@@ -13,7 +13,7 @@ Progress:
 
 - you can see progress components with 0% completion, different sizes, colors for progress indication and also live updates
 - by pressing the "Reload progress" button, you can reload the state of the progress components
-- there is also a progress indicator under the section "No data table" -> whenever the progress component finishes loading, the empty table is displayed
+- there is also a progress indicator under the section "Empty table" -> whenever the progress component finishes loading, the empty table is displayed
 
 Grid:
 
