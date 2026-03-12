@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "datagrid-demo": {
+    "components-showcase-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/datagrid-demo",
+            "outputPath": "dist/components-showcase-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "datagrid-demo:build:production"
+              "buildTarget": "components-showcase-app:build:production"
             },
             "development": {
-              "buildTarget": "datagrid-demo:build:development"
+              "buildTarget": "components-showcase-app:build:development"
             }
           },
           "defaultConfiguration": "development"

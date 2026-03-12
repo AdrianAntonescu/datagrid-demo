@@ -101,7 +101,7 @@ export class DemoComponent implements OnInit {
     this.progressComplete.set(true);
   }
 
-  onSpinnersReload(): void {
+  onProgressReload(): void {
     this.progress.set(0);
     this.progressComplete.set(false);
     clearInterval(this.progressInterval);

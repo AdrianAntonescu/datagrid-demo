@@ -2,39 +2,39 @@
 
 <div class="progress-showcase">
   <t-progress
-      [radius]="50"
-      [progress]="0"
-      color="#fa4616"
-      (complete)="onProgressComplete()"
-    ></t-progress>
+    [radius]="50"
+    [progress]="0"
+    color="#fa4616"
+    (complete)="onProgressComplete()"
+  ></t-progress>
 
-    <t-progress
-      [radius]="25"
-      [progress]="progress()"
-      color="#ffe135"
-      (complete)="onProgressComplete()"
-    ></t-progress>
+  <t-progress
+    [radius]="25"
+    [progress]="progress()"
+    color="#ffe135"
+    (complete)="onProgressComplete()"
+  ></t-progress>
 
-    <t-progress
-      [radius]="15"
-      [progress]="55"
-      color="#4361ee"
-      (complete)="onProgressComplete()"
-    ></t-progress>
+  <t-progress
+    [radius]="15"
+    [progress]="55"
+    color="#4361ee"
+    (complete)="onProgressComplete()"
+  ></t-progress>
 
-    <t-progress
-      [radius]="40"
-      [progress]="progress()"
-      color="#8a00c4"
-      (complete)="onProgressComplete()"
-    ></t-progress>
+  <t-progress
+    [radius]="40"
+    [progress]="progress()"
+    color="#8a00c4"
+    (complete)="onProgressComplete()"
+  ></t-progress>
 </div>
 
 <div class="buttons-container">
-  <button (click)="onSpinnersReload()">Reload spinners</button>
+  <button (click)="onProgressReload()">Reload progress</button>
 </div>
 
-<h2>No data table and progress</h2>
+<h2>Empty table</h2>
 
 @if (progressComplete()) {
   <t-grid [data]="[]">
@@ -83,8 +83,13 @@
   [gridDataLength]="nbaPlayers.length"
   (paginationChange)="performNbaPlayersFetch($event)"
 >
-  <t-column [name]="'name'" [property]="'name'"></t-column>
-  <t-column [name]="'total points'" [property]="'totalPoints'"></t-column>
+  <!-- sortable properties on the columns are ignored, because the grid is not sortable -->
+  <t-column [name]="'name'" [property]="'name'" [sortable]="true"></t-column>
+  <t-column
+    [name]="'total points'"
+    [property]="'totalPoints'"
+    [sortable]="true"
+  ></t-column>
   <t-column
     [name]="'championships won'"
     [property]="'championshipsWon'"

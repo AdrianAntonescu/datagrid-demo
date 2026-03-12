@@ -14,9 +14,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'datagrid-demo' title`, () => {
+  it(`should have the 'components-showcase-app' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('datagrid-demo');
+    expect(app.title).toEqual('components-showcase-app');
   });
 });
