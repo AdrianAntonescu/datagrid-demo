@@ -33,33 +33,58 @@ export class DemoComponent {
   readonly nbaPlayers: NbaPlayer[] = nbaPlayers;
 
   readonly countriesGridData = signal<Country[]>(this.countries);
+  readonly nbaGridData = signal<NbaPlayer[]>(this.nbaPlayers);
 
-  private currentPage = 1;
-  private currentPageSize: number | null = null;
-  private currentSort: SortChange | null = null;
+  private countriesCurrentPage = 1;
+  private countriesCurrentPageSize: number | null = null;
+  private countriesCurrentSort: SortChange | null = null;
 
+  private nbaPlayersCurrentPage = 1;
+  private nbaPlayersCurrentPageSize: number | null = null;
 
   // In a real application, this would be replaced by a real API call
   // with pagination and sorting capabilities; for the puropose of this exercise
   // I believe this would be enough to demonstrate the grid functionality
   performFetch(event: PaginationChange | SortChange): void {
     if ('direction' in event) {
-      this.currentSort = event;
+      this.countriesCurrentSort = event;
     } else {
-      this.currentPage = event.currentPage;
-      this.currentPageSize = event.pageSize;
+      this.countriesCurrentPage = event.currentPage;
+      this.countriesCurrentPageSize = event.pageSize;
     }
 
     const sortedData = this.getSortedData();
-    this.countriesGridData.set(this.getPaginatedData(sortedData));
+    this.countriesGridData.set(
+      this.getPaginatedData(
+        sortedData,
+        this.countriesCurrentPage,
+        this.countriesCurrentPageSize,
+      ),
+    );
+  }
+
+  performNbaPlayersFetch(event: PaginationChange): void {
+    this.nbaPlayersCurrentPage = event.currentPage;
+    this.nbaPlayersCurrentPageSize = event.pageSize;
+
+    this.nbaGridData.set(
+      this.getPaginatedData(
+        this.nbaPlayers,
+        this.nbaPlayersCurrentPage,
+        this.nbaPlayersCurrentPageSize,
+      ),
+    );
   }
 
   private getSortedData(): Country[] {
-    if (!this.currentSort || this.currentSort.direction === Direction.NONE) {
+    if (
+      !this.countriesCurrentSort ||
+      this.countriesCurrentSort.direction === Direction.NONE
+    ) {
       return [...this.countries];
     }
 
-    const { columnName, direction } = this.currentSort;
+    const { columnName, direction } = this.countriesCurrentSort;
     const property = columnName as keyof Country;
 
     return [...this.countries].sort((a, b) => {
@@ -75,13 +100,17 @@ export class DemoComponent {
     });
   }
 
-  private getPaginatedData(data: Country[]): Country[] {
-    if (this.currentPageSize === null) {
+  private getPaginatedData<T>(
+    data: T[],
+    currentPage: number,
+    pageSize: number | null,
+  ): T[] {
+    if (pageSize === null) {
       return data;
     }
 
-    const start = (this.currentPage - 1) * this.currentPageSize;
-    const end = this.currentPage * this.currentPageSize;
+    const start = (currentPage - 1) * pageSize;
+    const end = currentPage * pageSize;
 
     return data.slice(start, end);
   }

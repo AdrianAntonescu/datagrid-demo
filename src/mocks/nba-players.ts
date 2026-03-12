@@ -1,0 +1,22 @@
+export const nbaPlayers = [
+  { name: "LeBron James", totalPoints: 43127, championshipsWon: 4 },
+  { name: "Kareem Abdul-Jabbar", totalPoints: 38387, championshipsWon: 6 },
+  { name: "Karl Malone", totalPoints: 36928, championshipsWon: 0 },
+  { name: "Kobe Bryant", totalPoints: 33643, championshipsWon: 5 },
+  { name: "Michael Jordan", totalPoints: 32292, championshipsWon: 6 },
+  { name: "Dirk Nowitzki", totalPoints: 31560, championshipsWon: 1 },
+  { name: "Wilt Chamberlain", totalPoints: 31419, championshipsWon: 2 },
+  { name: "Bill Russell", totalPoints: 14522, championshipsWon: 11 },
+  { name: "Kevin Durant", totalPoints: 32174, championshipsWon: 2 },
+  { name: "Elvin Hayes", totalPoints: 27313, championshipsWon: 1 },
+  { name: "Moses Malone", totalPoints: 27409, championshipsWon: 1 },
+  { name: "Shaquille O'Neal", totalPoints: 28596, championshipsWon: 4 },
+  { name: "Oscar Robertson", totalPoints: 26710, championshipsWon: 1 },
+  { name: "Hakeem Olajuwon", totalPoints: 26946, championshipsWon: 2 },
+  { name: "Dominique Wilkins", totalPoints: 26668, championshipsWon: 0 },
+  { name: "Jerry West", totalPoints: 25192, championshipsWon: 1 },
+  { name: "John Havlicek", totalPoints: 26395, championshipsWon: 8 },
+  { name: "Paul Pierce", totalPoints: 26397, championshipsWon: 1 },
+  { name: "Reggie Miller", totalPoints: 25279, championshipsWon: 0 },
+  { name: "Dwyane Wade", totalPoints: 23165, championshipsWon: 3 }
+]
