@@ -49,18 +49,18 @@ export class DemoComponent implements OnInit {
 
   private nbaPlayersCurrentPage = 1;
   private nbaPlayersCurrentPageSize: number | null = null;
+  private progressInterval = 0;
 
   ngOnInit() {
-    // Simulate progress for the first grid
-    const interval = setInterval(() => {
+    this.progressInterval = setInterval(() => {
       this.progress.update((value) => {
         if (value === 100) {
-          clearInterval(interval);
+          clearInterval(this.progressInterval);
         }
-        
+
         return value + 10;
       });
-    }, 500);
+    }, 500) as unknown as number;
   }
 
   // In a real application, this would be replaced by a real API call
@@ -99,6 +99,22 @@ export class DemoComponent implements OnInit {
 
   onProgressComplete(): void {
     this.progressComplete.set(true);
+  }
+
+  onSpinnersReload(): void {
+    this.progress.set(0);
+    this.progressComplete.set(false);
+    clearInterval(this.progressInterval);
+
+    this.progressInterval = setInterval(() => {
+      this.progress.update((value) => {
+        if (value === 100) {
+          clearInterval(this.progressInterval);
+        }
+
+        return value + 10;
+      });
+    }, 500) as unknown as number;
   }
 
   private getSortedData(): Country[] {

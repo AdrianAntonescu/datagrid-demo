@@ -19,3 +19,22 @@ h2 {
   justify-content: space-between;
   padding: 2rem;
 }
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid $grid-border;
+  border-radius: 6px;
+  background: $grid-header-background;
+  color: $grid-text;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: $grid-primary-color;
+  color: $grid-primary-color;
+}
